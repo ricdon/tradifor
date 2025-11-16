@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #d9ac3c;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    font-family: 'Stencil', sans-serif;
+    text-align: center;
+    background-color: #333;
+    color: #d9ac3c;
+    padding: 10px 0;
+}
+
+.logo {
+    width: 360px;
+    height: auto;
+}
+
+@media (min-width: 600px) {
+    .logo {
+        width: 500px;
+    }
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #d9ac3c;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.thumbnail {
+    cursor: pointer;
+    width: 360px;
+    height: 239px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.modal-image {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #d9ac3c;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+.modal-content p {
+    color: #fff;
+    margin: 10px 0 0;
+    font-size: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer h2, footer h3 {
+    color: #d9ac3c;
+    margin: 10px 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.top-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    color: #d9ac3c;
+    text-decoration: none;
+    background-color: #444;
+    border-radius: 5px;
+    font-family: 'Stencil', sans-serif;
+    transition: background-color 0.2s;
+}
+
+.top-button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Estilos para separação da seção de acessórios */
+.separator {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #d9ac3c;
+    background-color: #2a2a2a;
+}
+
+.separator h2 {
+    font-family: 'Stencil', sans-serif;
+    text-align: center;
+    color: #d9ac3c;
+    margin: 0 0 20px 0; /* Remove margem superior e adiciona margem inferior */
+    width: 100%; /* Garante que o h2 ocupe a linha inteira */
+}
+
+.accessories-grid {
+    width: 100%; /* Garante que o grid ocupe toda a largura disponível */
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 600px) {
+    .separator {
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+}
