@@ -1,0 +1,275 @@
+/* ===========================
+   MARKETPLACE — Estilos Extras
+   =========================== */
+
+/* Hero variante marketplace */
+.marketplace-hero-bg {
+    background:
+        radial-gradient(ellipse 70% 55% at 30% 50%, rgba(201, 150, 58, 0.1) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 75% 40%, rgba(139, 90, 20, 0.08) 0%, transparent 60%),
+        linear-gradient(160deg, #1a1208 0%, #0e0c0a 50%, #14100a 100%);
+}
+
+/* Badge ativo no nav */
+nav ul li a.nav-active {
+    color: var(--gold-light) !important;
+    background: rgba(201, 150, 58, 0.15) !important;
+    border-color: var(--gold) !important;
+}
+
+/* ===========================
+   COMO FUNCIONA
+   =========================== */
+
+.how-it-works {
+    background: var(--bg-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+}
+
+.how-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 32px 100px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+}
+
+.step-card {
+    background: var(--bg-card);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.step-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.step-card:hover::before {
+    opacity: 1;
+}
+
+.step-number {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--border-strong);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    transition: color var(--transition);
+}
+
+.step-card:hover .step-number {
+    color: var(--gold-dim);
+}
+
+.step-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.step-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* ===========================
+   EMPTY STATE
+   =========================== */
+
+.empty-state {
+    text-align: center;
+    padding: 80px 32px;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.empty-icon {
+    font-size: 3.5rem;
+    opacity: 0.25;
+    line-height: 1;
+    filter: grayscale(1);
+}
+
+.empty-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+}
+
+.empty-desc {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ===========================
+   CTA BANNER
+   =========================== */
+
+.cta-banner {
+    background: linear-gradient(135deg, #1e1608 0%, #2a1e0a 50%, #1a1208 100%);
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border);
+}
+
+.cta-banner-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin: 12px 0 18px;
+    letter-spacing: 0.01em;
+}
+
+.cta-title em {
+    font-style: italic;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--gold-light);
+    font-size: 1.05em;
+}
+
+.cta-desc {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 240px;
+}
+
+/* ===========================
+   BADGE DE PREÇO NO THUMB
+   =========================== */
+
+.thumb-wrap .price-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--gold);
+    color: var(--bg-deep);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    border-radius: 2px;
+    z-index: 3;
+    white-space: nowrap;
+}
+
+.thumb-wrap .seller-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(14, 12, 10, 0.85);
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+    z-index: 3;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 1024px) {
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-banner-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .how-inner {
+        padding: 60px 20px 70px;
+    }
+
+    .cta-banner-inner {
+        padding: 60px 20px;
+    }
+
+    .empty-state {
+        padding: 60px 20px;
+    }
+}

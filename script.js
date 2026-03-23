@@ -46,7 +46,6 @@ const images = [
     { src: 'images/image44.jpg', thumbnail: 'images/thumbnail44.jpg', description: 'Machado Leviathan - Kratos - God Of War' },
     { src: 'images/image45.jpg', thumbnail: 'images/thumbnail45.jpg', description: 'O Livro de Eli' },
     { src: 'images/image46.jpg', thumbnail: 'images/thumbnail46.jpg', description: 'Machete réplica do filme Rambo 4 (2008)' },
-
 ];
 
 // Dados dos acessórios
@@ -56,58 +55,129 @@ const accessories = [
     { src: 'images/acessories/image3.jpg', thumbnail: 'images/acessories/thumbnail3.jpg', description: 'Tábua de Carne' },
 ];
 
-// Função genérica para abrir modal
+// Abre modal
 function openModal(modalId, items, index) {
     const modal = document.getElementById(modalId);
-    const modalImage = modal.querySelector('.modal-image');
-    const modalDescription = modal.querySelector('#' + modalId + '-description');
+    if (!modal || index < 0 || index >= items.length) return;
 
-    if (!modal || !modalImage || !modalDescription || index < 0 || index >= items.length) {
-        console.error('Erro ao abrir modal: parâmetros inválidos');
-        return;
-    }
+    const modalImage = modal.querySelector('.modal-image');
+    const descId = modalId + '-description';
+    const modalDescription = document.getElementById(descId);
 
     modalImage.src = items[index].src;
-    modalDescription.textContent = items[index].description;
-    modal.style.display = 'block';
-
-    // Fecha o modal ao clicar na imagem
+    modalImage.alt = items[index].description.split(' / ')[0];
+    modalImage.style.cursor = 'zoom-out';
     modalImage.onclick = () => closeModal(modalId);
+    if (modalDescription) modalDescription.textContent = items[index].description;
+
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
 }
 
-// Função genérica para fechar modal
+// Fecha modal
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
     }
 }
 
-// Função para gerar thumbnails dinamicamente na ordem inversa
+// Gera thumbnails com layout aprimorado
 function generateThumbnails(containerId, items, modalId) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Itera do último item até o primeiro
     for (let i = items.length - 1; i >= 0; i--) {
+        const wrap = document.createElement('div');
+        wrap.className = 'thumb-wrap';
+
         const img = document.createElement('img');
-        img.className = 'thumbnail';
         img.src = items[i].thumbnail;
-        img.alt = items[i].description.split(' / ')[0]; // Usa a primeira parte da descrição como alt
-        img.addEventListener('click', () => openModal(modalId, items, i));
-        container.appendChild(img);
+        img.alt = items[i].description.split(' / ')[0];
+        img.loading = 'lazy';
+
+        const label = document.createElement('div');
+        label.className = 'thumb-label';
+        label.textContent = items[i].description.split(' / ')[0];
+
+        const icon = document.createElement('div');
+        icon.className = 'thumb-zoom-icon';
+        icon.innerHTML = '+';
+
+        wrap.appendChild(img);
+        wrap.appendChild(label);
+        wrap.appendChild(icon);
+        wrap.addEventListener('click', () => openModal(modalId, items, i));
+
+        container.appendChild(wrap);
     }
 }
 
-// Inicialização ao carregar a página
+// Menu mobile
+function initMobileMenu() {
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('nav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => nav.classList.remove('is-open'));
+    });
+}
+
+// Header scroll effect
+function initHeaderScroll() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            header.style.background = 'rgba(14, 12, 10, 0.98)';
+        } else {
+            header.style.background = 'rgba(14, 12, 10, 0.9)';
+        }
+    }, { passive: true });
+}
+
+// Intersection observer para fade-in das thumbnails
+function initScrollAnimations() {
+    if (!('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.thumb-wrap').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = `opacity 0.5s ease ${(i % 6) * 0.06}s, transform 0.5s ease ${(i % 6) * 0.06}s`;
+        observer.observe(el);
+    });
+}
+
+// Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     generateThumbnails('knives', images, 'modal');
     generateThumbnails('acessories-grid', accessories, 'acessories-modal');
 
-    // Fecha modais ao clicar fora
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal(modal.id);
-        });
+    initMobileMenu();
+    initHeaderScroll();
+    initScrollAnimations();
+
+    // Fecha modal com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal.is-open').forEach(m => closeModal(m.id));
+        }
     });
 });

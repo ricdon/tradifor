@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marketplace de Coleções Tradifor — Venda sua coleção de facas com a curadoria e expertise da Cutelaria Tradifor.">
+    <title>Marketplace de Coleções · Cutelaria Tradifor</title>
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="marketplace.css">
+</head>
+<body id="top">
+
+    <!-- Header -->
+    <header id="site-header">
+        <div class="header-inner">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#galeria">Galeria</a></li>
+                    <li><a href="index.html#acessories">Acessórios</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="marketplace.html" class="nav-marketplace nav-active">Marketplace</a></li>
+                    <li><a href="index.html#contato" class="nav-cta">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Marketplace -->
+    <section class="hero hero-marketplace">
+        <div class="hero-bg marketplace-hero-bg"></div>
+        <div class="hero-content">
+            <img src="images/logo.png" alt="Logotipo da Cutelaria Tradifor" class="hero-logo">
+            <p class="hero-eyebrow">Cutelaria Tradifor · Serviço Exclusivo</p>
+            <h1 class="hero-title">Marketplace<br><em>de Coleções</em></h1>
+            <p class="hero-subtitle">Quer vender sua coleção de facas com credibilidade e alcance? A Tradifor apresenta suas peças ao público certo — com curadoria especializada e décadas de tradição.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/5517981163513?text=Olá!%20Tenho%20interesse%20no%20Marketplace%20de%20Coleções%20da%20Tradifor." target="_blank" class="btn btn-primary">Quero Vender Minha Coleção</a>
+                <a href="#como-funciona" class="btn btn-ghost">Como Funciona</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="how-inner">
+            <div class="section-header">
+                <p class="section-label">O Processo</p>
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-desc">Simples, transparente e com todo o respaldo da expertise Tradifor.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Envie suas Fotos</h3>
+                    <p class="step-desc">Entre em contato via WhatsApp com fotos e detalhes das peças que deseja vender. Nossa equipe fará uma avaliação inicial.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Curadoria Especializada</h3>
+                    <p class="step-desc">A Tradifor avalia cada peça com olhar técnico, define a precificação adequada e prepara o material para exposição no site.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Exposição na Vitrine</h3>
+                    <p class="step-desc">Suas peças ficam expostas nesta página, com descrição profissional, para o nosso público de colecionadores e entusiastas.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Venda Realizada</h3>
+                    <p class="step-desc">Quando a venda é fechada, intermediamos a negociação com segurança e você recebe o valor combinado sem complicações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-ornament">✦</span>
+    </div>
+
+    <!-- Galeria de peças à venda -->
+    <main>
+        <section class="gallery-section" id="colecoes">
+            <div class="section-header">
+                <p class="section-label">Disponíveis Agora</p>
+                <h2 class="section-title">Peças à Venda</h2>
+                <p class="section-desc">Coleções selecionadas e autenticadas pela Tradifor. Entre em contato para mais informações sobre qualquer peça.</p>
+            </div>
+
+            <!-- Estado vazio — exibido quando não há itens na pasta images-temp -->
+            <div class="empty-state" id="empty-state">
+                <div class="empty-icon">⚔</div>
+                <h3 class="empty-title">Nenhuma Peça Disponível no Momento</h3>
+                <p class="empty-desc">No momento não há coleções à venda. Se você tem facas para vender, entre em contato — ficaremos felizes em ajudá-lo a encontrar o comprador certo.</p>
+                <a href="https://wa.me/5517981163513?text=Olá!%20Tenho%20interesse%20no%20Marketplace%20de%20Coleções%20da%20Tradifor." target="_blank" class="btn btn-primary">Falar com a Tradifor</a>
+            </div>
+
+            <div class="gallery-grid" id="marketplace-grid"></div>
+        </section>
+    </main>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="cta-banner-inner">
+            <div class="cta-text">
+                <p class="section-label">Tem peças para vender?</p>
+                <h2 class="cta-title">Coloque sua Coleção<br><em>nas Melhores Mãos</em></h2>
+                <p class="cta-desc">A Tradifor tem décadas de experiência e um público apaixonado por facas artesanais. Deixe-nos ajudá-lo a encontrar o próximo guardião das suas peças.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="https://wa.me/5517981163513?text=Olá!%20Tenho%20interesse%20no%20Marketplace%20de%20Coleções%20da%20Tradifor." target="_blank" class="btn btn-primary">Iniciar pelo WhatsApp</a>
+                <a href="index.html" class="btn btn-ghost">Ver Nosso Trabalho</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="marketplace-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" onclick="closeModal('marketplace-modal')"></div>
+        <div class="modal-panel">
+            <button class="modal-close" onclick="closeModal('marketplace-modal')" aria-label="Fechar">✕</button>
+            <div class="modal-img-wrap">
+                <img class="modal-image" id="marketplace-modal-image" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <p id="marketplace-modal-description"></p>
+                <a href="https://wa.me/5517981163513?text=Olá!%20Tenho%20interesse%20em%20uma%20peça%20do%20Marketplace." target="_blank" class="btn btn-primary modal-cta">Tenho Interesse · Falar via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="sobre">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Tradifor" class="footer-logo">
+            </div>
+            <div class="footer-info">
+                <h2 class="footer-title">TRADIFOR<br>Facas Artesanais</h2>
+                <p class="footer-tagline"><em>Marketplace de Coleções — Vendas com Curadoria e Expertise.</em></p>
+                <p class="footer-phone">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.12.96.36 1.9.71 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.71A2 2 0 0122 14.92z"></path></svg>
+                    (17) 98116-3513
+                </p>
+                <p class="footer-about">Orgulhosamente estabelecidos em Votuporanga, no interior de São Paulo, a Tradifor conecta colecionadores, entusiastas e vendedores com paixão e responsabilidade.</p>
+            </div>
+            <div class="footer-social" id="contato">
+                <h3>Siga-nos</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/5517981163513" target="_blank" aria-label="WhatsApp" class="social-link">
+                        <img src="images/icons/whatsapp_icon.jpg" alt="WhatsApp">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100037933211123" target="_blank" aria-label="Facebook" class="social-link">
+                        <img src="images/icons/facebook_icon.png" alt="Facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/tradifor" target="_blank" aria-label="Instagram" class="social-link">
+                        <img src="images/icons/instagram_icon.jpg" alt="Instagram">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Cutelaria Tradifor · Todos os direitos reservados</p>
+            <a href="#top" class="top-button">↑ Topo da Página</a>
+        </div>
+    </footer>
+
+    <script src="marketplace.js"></script>
+</body>
+</html>

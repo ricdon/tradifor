@@ -6,74 +6,145 @@
     <meta name="description" content="TRADIFOR Facas Artesanais. Experimente a excelência em facas personalizadas e feitas sob medida.">
     <title>Cutelaria Tradifor - Facas Artesanais</title>
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
-    <header>
-        <div class="container">
-            <img src="images/logo.png" alt="Logotipo da Cutelaria Tradifor" class="logo">
+
+    <!-- Header -->
+    <header id="site-header">
+        <div class="header-inner">
             <nav>
                 <ul>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
                     <li><a href="#acessories">Acessórios</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="marketplace.html" class="nav-marketplace">Marketplace</a></li>
+                    <li><a href="#contato" class="nav-cta">Contato</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <main class="container">
-        <section class="grid" id="knives"></section>
-        <section class="separator" id="acessories">
-            <h2>Acessórios</h2>
-            <div class="grid accessories-grid" id="acessories-grid"></div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <img src="images/logo.png" alt="Logotipo da Cutelaria Tradifor" class="hero-logo">
+            <p class="hero-eyebrow">Cutelaria Artesanal · Votuporanga, SP</p>
+            <h1 class="hero-title">Arte Forjada<br><em>em Aço</em></h1>
+            <p class="hero-subtitle">Cada faca é uma obra singular — criada com aços especiais, Damasco e a dedicação de quem transforma metal em legado.</p>
+            <div class="hero-actions">
+                <a href="#galeria" class="btn btn-primary">Ver Galeria</a>
+                <a href="marketplace.html" class="btn btn-marketplace">🗡 Marketplace de Coleções</a>
+                <a href="https://wa.me/5517981163513" target="_blank" class="btn btn-ghost">Encomendar Agora</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-ornament">✦</span>
+    </div>
+
+    <!-- Gallery Section -->
+    <main>
+        <section class="gallery-section" id="galeria">
+            <div class="section-header">
+                <p class="section-label">Portfólio</p>
+                <h2 class="section-title">Criações Exclusivas</h2>
+                <p class="section-desc">Cada peça é produzida sob medida, do forjamento ao acabamento final.</p>
+            </div>
+            <div class="gallery-grid" id="knives"></div>
+        </section>
+
+        <!-- Accessories Section -->
+        <section class="accessories-section" id="acessories">
+            <div class="accessories-inner">
+                <div class="section-header">
+                    <p class="section-label">Complementos</p>
+                    <h2 class="section-title">Acessórios</h2>
+                </div>
+                <div class="gallery-grid accessories-grid" id="acessories-grid"></div>
+            </div>
         </section>
     </main>
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <img class="modal-image" id="modal-image" src="" alt="">
-            <p id="modal-description"></p>
+    <!-- Modals -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" onclick="closeModal('modal')"></div>
+        <div class="modal-panel">
+            <button class="modal-close" onclick="closeModal('modal')" aria-label="Fechar">✕</button>
+            <div class="modal-img-wrap">
+                <img class="modal-image" id="modal-image" src="" alt="" onclick="closeModal('modal')" style="cursor:zoom-out;">
+            </div>
+            <div class="modal-info">
+                <p id="modal-description"></p>
+                <a href="https://wa.me/5517981163513" target="_blank" class="btn btn-primary modal-cta">Encomendar Esta Peça</a>
+            </div>
         </div>
-        <span class="modal-close" onclick="closeModal('modal')">×</span>
     </div>
 
-    <div class="modal" id="acessories-modal">
-        <div class="modal-content">
-            <img class="modal-image" id="acessories-modal-image" src="" alt="">
-            <p id="acessories-modal-description"></p>
+    <div class="modal" id="acessories-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" onclick="closeModal('acessories-modal')"></div>
+        <div class="modal-panel">
+            <button class="modal-close" onclick="closeModal('acessories-modal')" aria-label="Fechar">✕</button>
+            <div class="modal-img-wrap">
+                <img class="modal-image" id="acessories-modal-image" src="" alt="" onclick="closeModal('acessories-modal')" style="cursor:zoom-out;">
+            </div>
+            <div class="modal-info">
+                <p id="acessories-modal-description"></p>
+                <a href="https://wa.me/5517981163513" target="_blank" class="btn btn-primary modal-cta">Encomendar</a>
+            </div>
         </div>
-        <span class="modal-close" onclick="closeModal('acessories-modal')">×</span>
     </div>
 
-    <footer>
-        <div class="container">
-            <section id="sobre">
-                <h2>TRADIFOR Facas Artesanais</h2>
-                <h3>Não Trabalhamos com Produtos à Pronta Entrega</h3>
-                <p>As Facas são desenvolvidas de acordo com o desejo de cada cliente.</p>
-                <h3>Telefone: (17) 98116-3513</h3>
-                <p>Experimente a excelência em facas personalizadas e feitas sob medida, criadas exclusivamente para atender às suas expectativas.<br> Na Cutelaria Tradifor, utilizamos aços especiais de alta qualidade e o requinte do Damasco, proporcionando uma combinação inigualável de durabilidade e elegância.<br> Orgulhosamente estabelecidos em Votuporanga, no interior de São Paulo, compartilhamos nossa paixão e habilidade com apreciadores no Brasil e em todo o mundo.<br> Torne-se parte da nossa história e experimente o luxo e a excelência de nossas criações.</p>
-            </section>
-
-            <section id="contato">
+    <!-- Footer -->
+    <footer id="sobre">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Tradifor" class="footer-logo">
+            </div>
+            <div class="footer-info">
+                <h2 class="footer-title">TRADIFOR<br>Facas Artesanais</h2>
+                <p class="footer-tagline"><em>Não Trabalhamos com Produtos à Pronta Entrega.</em><br>As facas são desenvolvidas de acordo com o desejo de cada cliente.</p>
+                <p class="footer-phone">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.12.96.36 1.9.71 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.71A2 2 0 0122 14.92z"></path></svg>
+                    (17) 98116-3513
+                </p>
+                <p class="footer-about">Experimente a excelência em facas personalizadas e feitas sob medida, criadas exclusivamente para atender às suas expectativas. Na Cutelaria Tradifor, utilizamos aços especiais de alta qualidade e o requinte do Damasco, proporcionando uma combinação inigualável de durabilidade e elegância. Orgulhosamente estabelecidos em Votuporanga, no interior de São Paulo, compartilhamos nossa paixão e habilidade com apreciadores no Brasil e em todo o mundo.</p>
+            </div>
+            <div class="footer-social" id="contato">
                 <h3>Siga-nos</h3>
                 <div class="social-icons">
-                    <a href="https://wa.me/5517981163513" target="_blank" aria-label="Contato via WhatsApp">
+                    <a href="https://wa.me/5517981163513" target="_blank" aria-label="Contato via WhatsApp" class="social-link">
                         <img src="images/icons/whatsapp_icon.jpg" alt="WhatsApp">
+                        <span>WhatsApp</span>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=100037933211123" target="_blank" aria-label="Página no Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100037933211123" target="_blank" aria-label="Página no Facebook" class="social-link">
                         <img src="images/icons/facebook_icon.png" alt="Facebook">
+                        <span>Facebook</span>
                     </a>
-                    <a href="https://www.instagram.com/tradifor" target="_blank" aria-label="Perfil no Instagram">
+                    <a href="https://www.instagram.com/tradifor" target="_blank" aria-label="Perfil no Instagram" class="social-link">
                         <img src="images/icons/instagram_icon.jpg" alt="Instagram">
+                        <span>Instagram</span>
                     </a>
                 </div>
-            </section>
+            </div>
         </div>
-        <a href="#top" class="top-button">Topo da Página</a>
+        <div class="footer-bottom">
+            <p>© 2026 Cutelaria Tradifor · Todos os direitos reservados</p>
+            <a href="#top" class="top-button">↑ Topo da Página</a>
+        </div>
     </footer>
 
-    <script src="script.js?v=1.3"></script>
+    <script src="script.js"></script>
 </body>
 </html>
