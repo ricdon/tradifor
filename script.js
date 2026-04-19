@@ -46,6 +46,7 @@ const images = [
     { src: 'images/image44.jpg', thumbnail: 'images/thumbnail44.jpg', description: 'Machado Leviathan - Kratos - God Of War' },
     { src: 'images/image45.jpg', thumbnail: 'images/thumbnail45.jpg', description: 'O Livro de Eli' },
     { src: 'images/image46.jpg', thumbnail: 'images/thumbnail46.jpg', description: 'Machete réplica do filme Rambo 4 (2008)' },
+    { src: 'images/image47.jpg', thumbnail: 'images/thumbnail47.jpg', description: 'Faca Pedido Especial' },
 ];
 
 // Dados dos acessórios
