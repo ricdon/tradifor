@@ -47,6 +47,7 @@ const images = [
     { src: 'images/image45.jpg', thumbnail: 'images/thumbnail45.jpg', description: 'O Livro de Eli' },
     { src: 'images/image46.jpg', thumbnail: 'images/thumbnail46.jpg', description: 'Machete réplica do filme Rambo 4 (2008)' },
     { src: 'images/image47.jpg', thumbnail: 'images/thumbnail47.jpg', description: 'Faca Pedido Especial' },
+    { src: 'images/image48.jpg', thumbnail: 'images/thumbnail48.jpg', description: 'Kiridashi, Faca de origem japonesa' },    
 ];
 
 // Dados dos acessórios
